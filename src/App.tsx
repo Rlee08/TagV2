@@ -3,7 +3,7 @@ import { Tldraw, track, useEditor, } from 'tldraw'
 import 'tldraw/tldraw.css'
 import './custom-ui.css'
 import { useSyncDemo } from '@tldraw/sync'
-
+import IcebreakerPrompt from './IceBreakerPrompt'
 
 // Splash Screen Component
 const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
@@ -33,9 +33,11 @@ export default function CustomUiExample() {
 	const [newShapeCreated, setNewShapeCreated] = useState(false);
 	const [totalContributions, setTotalContributions] = useState(0);
 	const [canContribute, setCanContribute] = useState(true);
+	const [showIcebreaker, setShowIcebreaker] = useState(false);
 	
 	const handleSplashFinish = () => {
 		setShowSplash(false);
+		setShowIcebreaker(true);
 	};
 
 	const handleNewShapeCreated = () => {
@@ -55,6 +57,8 @@ export default function CustomUiExample() {
 				<CustomUi newShapeCreated={newShapeCreated}
 				totalContributions={totalContributions}
 				setTotalContributions={setTotalContributions}
+					showIcebreaker=
+{showIcebreaker}
 				/>
 				<InsideOfContext onNewShapeCreated={handleNewShapeCreated}/>
 			</Tldraw>
@@ -63,7 +67,7 @@ export default function CustomUiExample() {
 	)
 }
 	
-const CustomUi = track(({ newShapeCreated, totalContributions }) => {
+const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker }) => {
 	const editor = useEditor()
 
 	useEffect(() => {
@@ -109,6 +113,7 @@ const CustomUi = track(({ newShapeCreated, totalContributions }) => {
 		<div className="custom-layout">
 			<div className="header">
 				<header>
+					{showIcebreaker && <IcebreakerPrompt />}
 					{!newShapeCreated && (
 					<h1> Welcome! Feel free to add to the conversation!</h1>
 					)}

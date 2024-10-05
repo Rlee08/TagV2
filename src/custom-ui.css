@@ -52,13 +52,13 @@
 
 h1 {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 14px;
 	text-align: center;
 }
 
 h2 {
 	font-weight: regular;
-	font-size: 25px;
+	font-size: 18px;
 	text-align: center;
 }
 
@@ -100,3 +100,24 @@ h2 {
 	background-color: #ffffff;
 	z-index: 10000;
 } */
+
+.icebreaker-prompt {
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 8px;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: color 0.5s ease;
+}
+
+.icebreaker-prompt h3 {
+	font-size: 18px;
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+
+.countdown {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
