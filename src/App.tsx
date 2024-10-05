@@ -29,7 +29,7 @@ const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
 
 export default function CustomUiExample() {
 	const [showSplash, setShowSplash] = useState(true);
-	const store = useSyncDemo({ roomId: "NotLive1" })
+	const store = useSyncDemo({ roomId: "SandNelly1" })
 	const [newShapeCreated, setNewShapeCreated] = useState(false);
 	const [totalContributions, setTotalContributions] = useState(0);
 	const [canContribute, setCanContribute] = useState(true);
@@ -120,17 +120,10 @@ const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker })
 					{newShapeCreated && (
 					<h1> Feel free to click next when you're finished!</h1>
 					)}
-					<h2> {5+ totalContributions} Total Contributions </h2>
+					<h2> {1+ totalContributions} Total Contributions </h2>
 				</header>
 			</div>
 			<div className="custom-toolbar">
-				<button
-					className="custom-button"
-					data-isactive={editor.getCurrentToolId() === 'select'}
-					onClick={() => editor.setCurrentTool('select')}
-				>
-					Select
-				</button>
 				<button
 					className="custom-button"
 					data-isactive={editor.getCurrentToolId() === 'draw'}
@@ -145,6 +138,13 @@ const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker })
 				>
 					Text
 				</button>
+				{/* <button
+					className="custom-button"
+					data-isactive={editor.getCurrentToolId() === 'select'}
+					onClick={() => editor.setCurrentTool('select')}
+				>
+					Select
+				</button> */}
 				{/* <button
 					className="custom-button"
 					data-isactive={editor.getCurrentToolId() === 'eraser'}
