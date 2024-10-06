@@ -70,38 +70,38 @@ export default function CustomUiExample() {
 const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker }) => {
 	const editor = useEditor()
 
-	useEffect(() => {
-		const handleKeyUp = (e: KeyboardEvent) => {
-			switch (e.key) {
-				case 'Delete':
-				case 'Backspace': {
-					editor.deleteShapes(editor.getSelectedShapeIds())
-					break
-				}
-				case 'v': {
-					editor.setCurrentTool('select')
-					break
-				}
+	// useEffect(() => {
+	// 	const handleKeyUp = (e: KeyboardEvent) => {
+	// 		switch (e.key) {
+				// case 'Delete':
+				// case 'Backspace': {
+				// 	editor.deleteShapes(editor.getSelectedShapeIds())
+				// 	break
+				// }
+				// case 'v': {
+				// 	editor.setCurrentTool('select')
+				// 	break
+				// }
 				// case 'e': {
 				// 	editor.setCurrentTool('eraser')
 				// 	break
 				// }
-				case 'x':
-				case 'p':
-				case 'b':
-				case 'd': {
-					editor.setCurrentTool('draw')
-					break
-				}
-			}
-		}
+				// case 'x':
+				// case 'p':
+				// case 'b':
+				// case 'd': {
+				// 	editor.setCurrentTool('draw')
+				// 	break
+				// }
+		// 	}
+		// }
 
-		window.addEventListener('keyup', handleKeyUp)
-		return () => {
-			window.removeEventListener('keyup', handleKeyUp)
-		}
+		// window.addEventListener('keyup', handleKeyUp)
+		// return () => {
+		// 	window.removeEventListener('keyup', handleKeyUp)
+		// }
 
-	})
+	
 
 	const handleNext = () => {
 		// Add your logic for what should happen when "Next" is clicked
@@ -120,7 +120,7 @@ const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker })
 					{newShapeCreated && (
 					<h1> Feel free to click next when you're finished!</h1>
 					)}
-					<h2> {12+ totalContributions} Total Contributions </h2>
+					<h2> {19+ totalContributions} Total Contributions </h2>
 				</header>
 			</div>
 			<div className="custom-toolbar">
