@@ -106,7 +106,7 @@ const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker })
 	const handleNext = () => {
 		// Add your logic for what should happen when "Next" is clicked
 		console.log("Next button clicked!")
-		window.open("https://docs.google.com/forms/d/e/1FAIpQLSdAN4XF36AGJSsAqEvPm5TMmM4HWXucwZyy8yl62lLQvuabyQ/viewform?usp=sf_link")
+		window.open("https://docs.google.com/forms/d/e/1FAIpQLSdiGWvx_GsOWbgtnNxXpgVo80tII-Bv5Tz__uPiPHpnJNZSBg/viewform?usp=sf_link")
 	}
 
 	return (
@@ -120,7 +120,7 @@ const CustomUi = track(({ newShapeCreated, totalContributions, showIcebreaker })
 					{newShapeCreated && (
 					<h1> Feel free to click next when you're finished!</h1>
 					)}
-					<h2> {1+ totalContributions} Total Contributions </h2>
+					<h2> {12+ totalContributions} Total Contributions </h2>
 				</header>
 			</div>
 			<div className="custom-toolbar">
