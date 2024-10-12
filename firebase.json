@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "tag-risd",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

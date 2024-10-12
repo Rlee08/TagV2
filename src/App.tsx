@@ -5,6 +5,8 @@ import './custom-ui.css'
 import { useSyncDemo } from '@tldraw/sync'
 import IcebreakerPrompt from './IceBreakerPrompt'
 
+
+
 // Splash Screen Component
 const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
 	useEffect(() => {
@@ -34,7 +36,6 @@ export default function CustomUiExample() {
 	const [totalContributions, setTotalContributions] = useState(0);
 	const [canContribute, setCanContribute] = useState(true);
 	const [showIcebreaker, setShowIcebreaker] = useState(false);
-	
 	const handleSplashFinish = () => {
 		setShowSplash(false);
 		setShowIcebreaker(true);
@@ -47,7 +48,7 @@ export default function CustomUiExample() {
 			setCanContribute(false);
 		}
 	};
-	
+
 	return (
 		<div className="tldraw__editor">
 			{showSplash ? (
