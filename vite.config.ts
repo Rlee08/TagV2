@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
     ? 'https://tag-worker.ryantlee33.workers.dev'  // Default production URL
     : '`http://${location.hostname}:5172`'  // Development URL
 
+	
   return {
     plugins: [react()],
     define: {
