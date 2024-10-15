@@ -1,11 +1,18 @@
 import { useEffect,useState } from 'react'
-import { Tldraw, track, useEditor, } from 'tldraw'
+import { Tldraw,track,useEditor} from 'tldraw'
 import 'tldraw/tldraw.css'
 import './custom-ui.css'
-import { useSyncDemo } from '@tldraw/sync'
+import {useSync} from '@tldraw/sync'
+import { getBookmarkPreview } from './getBookmarkPreview'
+import { multiplayerAssetStore } from './multiplayerAssetStore'
 import IcebreakerPrompt from './IceBreakerPrompt'
 
 
+// Where is our worker located? Configure this in `vite.config.ts`
+const WORKER_URL = process.env.TLDRAW_WORKER_URL
+
+// In this example, the room ID is hard-coded. You can set this however you like though.
+const roomId = 'test-room1'
 
 // Splash Screen Component
 const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
@@ -29,9 +36,17 @@ const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
 	);
 	};
 
-export default function CustomUiExample() {
+function App() {
 	const [showSplash, setShowSplash] = useState(true);
-	const store = useSyncDemo({ roomId: "SandNelly1" })
+	
+	// Create a store connected to multiplayer.
+	const store = useSync({
+		// We need to know the websocket's URI...
+		uri: `${WORKER_URL}/connect/${roomId}`,
+		// ...and how to handle static assets like images & videos
+		assets: multiplayerAssetStore,
+	})
+
 	const [newShapeCreated, setNewShapeCreated] = useState(false);
 	const [totalContributions, setTotalContributions] = useState(0);
 	const [canContribute, setCanContribute] = useState(true);
@@ -54,12 +69,20 @@ export default function CustomUiExample() {
 			{showSplash ? (
 				<SplashScreen onFinish={handleSplashFinish} />
 			) : (
-			<Tldraw hideUi store = {store}>
+			<Tldraw 
+				// we can pass the connected store into the Tldraw component which will handle
+				// loading states & enable multiplayer UX like cursors & a presence menu
+				store = {store}
+				onMount={(editor) => {
+					// when the editor is ready, we need to register our bookmark unfurling service
+					editor.registerExternalAssetHandler('url', getBookmarkPreview)
+				}}
+				hideUi
+				>
 				<CustomUi newShapeCreated={newShapeCreated}
 				totalContributions={totalContributions}
 				setTotalContributions={setTotalContributions}
-					showIcebreaker=
-{showIcebreaker}
+				showIcebreaker= {showIcebreaker}
 				/>
 				<InsideOfContext onNewShapeCreated={handleNewShapeCreated}/>
 			</Tldraw>
@@ -192,3 +215,5 @@ function InsideOfContext({ onNewShapeCreated }: InsideOfContextProps) {
 
 	return null
 }
+
+export default App

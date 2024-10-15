@@ -3,6 +3,7 @@
 	inset: 0px;
 	z-index: 300;
 	pointer-events: none;
+	background-color: white;
 }
 
 .header {
@@ -90,14 +91,15 @@ h2 {
 	display: flex;
 	justify-content: right;
 	align-items: right;
-	/* background-color: #ffffff; /* or any color you prefer */
-} */
+	background-color: #ffffff;
+	z-index: 10000;
+}
 
-/* .fill-watermark {
+.fill-watermark {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #ffffff;
+	background-color: #000000;
 	z-index: 10000;
 } */
 
