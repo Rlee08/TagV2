@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "tag-risd",
+    "site": "yesterday-risd",
     "public": "dist",
     "ignore": [
       "firebase.json",

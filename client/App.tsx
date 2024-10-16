@@ -12,7 +12,7 @@ import IcebreakerPrompt from './IceBreakerPrompt'
 const WORKER_URL = process.env.TLDRAW_WORKER_URL
 
 // In this example, the room ID is hard-coded. You can set this however you like though.
-const roomId = 'test-room1'
+const roomId = 'test-room3'
 
 // Splash Screen Component
 const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
