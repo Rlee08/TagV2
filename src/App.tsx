@@ -31,7 +31,7 @@ const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
 
 export default function CustomUiExample() {
 	const [showSplash, setShowSplash] = useState(true);
-	const store = useSyncDemo({ roomId: "SandNelly1" })
+	const store = useSyncDemo({ roomId: "SandNelly2" })
 	const [newShapeCreated, setNewShapeCreated] = useState(false);
 	const [totalContributions, setTotalContributions] = useState(0);
 	const [canContribute, setCanContribute] = useState(true);
